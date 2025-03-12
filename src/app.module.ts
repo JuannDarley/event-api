@@ -3,10 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EventModule } from './event/event.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { env } from './env';
 
 @Module({
   imports: [EventModule,
-    MongooseModule.forRoot('mongodb+srv://devjuanndarley:V4vp5RtXA0Mzu8xC@cluster0.ukmfj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+    MongooseModule.forRoot(env.STRING_CONECTION)
   ],
   controllers: [AppController],
   providers: [AppService],
